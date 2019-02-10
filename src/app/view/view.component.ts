@@ -10,7 +10,8 @@ export class ViewComponent implements OnInit {
 
   userName: string = "";
   response: any;
-  reposObj:any;
+  reposObj: any;
+  starObj: any;
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -19,12 +20,17 @@ export class ViewComponent implements OnInit {
     let obs = this.http.get('https://api.github.com/users/'+ this.userName)
     obs.subscribe((response) =>{
       this.response = response;
-      console.log(response);
+      // console.log(response);
     })
     let obs = this.http.get('https://api.github.com/users/'+ this.userName+'/repos')
     obs.subscribe((reposObj) =>{
       this.reposObj = reposObj;
-      console.log(reposObj);
+      // console.log(reposObj);
+    })
+    let obs = this.http.get('https://api.github.com/users/'+ this.userName+'/starred')
+    obs.subscribe((starObj) =>{
+      this.starObj = starObj;
+      console.log(starObj);
     })
   }
 }

@@ -1,15 +1,16 @@
-<!-- User Name: <input type="text" [(ngModel)]="userName"> -->
-User Name: <input type="text" [(ngModel)]="userName">
-<button (click)="search()" type="button" name="button">Search</button>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
 
-<!-- <p class="[(ngModel)]"></p> -->
-
-<div *ngIf="response">
-  <img class="profileImg" src="{{response.avatar_url}}" alt="">
-  <p>name: {{response.name}}</p>
-  <p>UserName: {{response.login}}</p>
-  <!-- <p>Starred Repos: {{reposObj.name}}</p> -->
-  <!-- <p>Repos: {{reposObj[0].name}}</p> -->
-  <p *ngFor = "let num of reposObj">Repos: <a href="{{num.html_url}}" target="_blank">{{num.name}}</a></p>
-
+<div class="jumbotron">
+  User Name: <input type="text" [(ngModel)]="userName">
+  <button (click)="search()" type="button" name="button">Search</button>
+  <div *ngIf="response">
+    <img class="profileImg" src="{{response.avatar_url}}" alt="">
+    <p>name: {{response.name}}</p>
+    <p>UserName: {{response.login}}</p>
+    <p *ngFor = "let num of reposObj">Repos: <a href="{{num.html_url}}" target="_blank">{{num.name}}</a></p>
+    <hr>
+    <p *ngFor = "let num of starObj">Sarred Repos: <a href="{{num.html_url}}" target="_blank">{{num.name}}</a></p>
+  </div>
 </div>
