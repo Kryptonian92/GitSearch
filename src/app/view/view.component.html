@@ -1,0 +1,15 @@
+<!-- User Name: <input type="text" [(ngModel)]="userName"> -->
+User Name: <input type="text" [(ngModel)]="userName">
+<button (click)="search()" type="button" name="button">Search</button>
+
+<!-- <p class="[(ngModel)]"></p> -->
+
+<div *ngIf="response">
+  <img class="profileImg" src="{{response.avatar_url}}" alt="">
+  <p>name: {{response.name}}</p>
+  <p>UserName: {{response.login}}</p>
+  <!-- <p>Starred Repos: {{reposObj.name}}</p> -->
+  <!-- <p>Repos: {{reposObj[0].name}}</p> -->
+  <p *ngFor = "let num of reposObj">Repos: <a href="{{num.html_url}}" target="_blank">{{num.name}}</a></p>
+
+</div>
