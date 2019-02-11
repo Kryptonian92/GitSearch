@@ -1,12 +1,72 @@
-<div class="jumbotron">
-  User Name: <input type="text" [(ngModel)]="userName">
-  <button (click)="search()" type="button" name="button">Search</button>
-  <div *ngIf="response">
-    <img class="profileImg" src="{{response.avatar_url}}" alt="">
-    <p>name: {{response.name}}</p>
-    <p>UserName: {{response.login}}</p>
-    <p *ngFor = "let num of reposObj">Repos: <a href="{{num.html_url}}" target="_blank">{{num.name}}</a></p>
-    <hr>
-    <p *ngFor = "let num of starObj">Sarred Repos: <a href="{{num.html_url}}" target="_blank">{{num.name}}</a></p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Icon</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" target="_blank" href="http://www.ausarmcgruder.com">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" target="_blank" href="https://github.com/Kryptonian92">Github Profile</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      Ausar McGruder
+    </span>
   </div>
-</div>
+</nav>
+<div class="jumbotron">
+  <h3>Search Github's for user info!</h3>
+  <br>
+  <div class="row">
+    <div class="col s2 m2 l2">
+    </div>
+    <div class="col s8 m8 l8">
+      <div class="row">
+        <div class="col s8 m8 l8">
+          <input [(ngModel)]="userName" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        </div>
+        <div class="col s4 m4 l4">
+          <button (click)="search()" class="btn btn-outline-success my-2 my-sm-0 pull-center" type="button">Search</button>
+        </div>
+      </div>
+    </div>
+    <div class="col s2 m2 l2">
+    </div>
+  </div>
+  <div *ngIf="response" class="row">
+    <div class="col m6 s6">
+      <div class="row">
+        <div class="col s8 m8">
+          <h3 class="d-inline-block">{{response.name}}</h3>
+          <a target="_blank" class="btn btn-secondary btn-lg" href="https://www.github.com/{{userName}}" role="button">
+            View Profile
+          </a>
+        </div>
+      </div>
+      <img class="profileImg" src="{{response.avatar_url}}" alt="">
+      <p>Username: {{response.login}}</p>
+    </div>
+  </div>
+  <br>
+  <div *ngIf="response" class="row">
+    <div class="col m6 s6">
+      <h4 class="center">Repos</h4>
+      <p *ngFor="let num of reposObj"><a href="{{num.html_url}}" target="_blank">{{num.name}}</a></p>
+    </div>
+    <div class="col m6 s6">
+      <h4 *ngIf="starObj">Starrred Repos</h4>
+      <p *ngFor="let num of starObj"><a href="{{num.html_url}}" target="_blank">{{num.name}}</a></p>
+    </div>
+  </div>
+  <div class="card fixed-bottom">
+    <div class="card-body">
+      <p>I could either watch it happen or be a part of it.</p>
+      <footer class="blockquote-footer">Elon Musk <cite title="Source Title">Washington Post</cite></footer>
+    </div>
+  </div>
