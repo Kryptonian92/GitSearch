@@ -1,6 +1,7 @@
 # GitSearch
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
+Make sure you have Node.js versions 8.x or 10.x. Check Node.js version by running `node -v`. Run `npm install -g @angular/cli` if you need to install node.
 
 ## Development server
 
