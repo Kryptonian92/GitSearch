@@ -20,15 +20,13 @@ export class ViewComponent implements OnInit {
     let obs = this.http.get('https://api.github.com/users/'+ this.userName)
     obs.subscribe((response) =>{
       this.response = response;
-      // console.log(response);
     })
-    let obs = this.http.get('https://api.github.com/users/'+ this.userName+'/repos')
-    obs.subscribe((reposObj) =>{
+    let obsNew = this.http.get('https://api.github.com/users/'+ this.userName+'/repos')
+    obsNew.subscribe((reposObj) =>{
       this.reposObj = reposObj;
-      // console.log(reposObj);
     })
-    let obs = this.http.get('https://api.github.com/users/'+ this.userName+'/starred')
-    obs.subscribe((starObj) =>{
+    let ob = this.http.get('https://api.github.com/users/'+ this.userName+'/starred')
+    ob.subscribe((starObj) =>{
       this.starObj = starObj;
       console.log(starObj);
     })
